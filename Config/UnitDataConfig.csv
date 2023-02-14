@@ -1,0 +1,16 @@
+(Data),MaxHP,ATK,Speed,(暂时没设计到，按照动画播放速度来调整)atkInterval,(攻击距离)AttackRange,(察觉到敌人的距离)FindRange
+[Tower],,,,,,
+Tower,99999,5,0,1,200,99999
+[Denfence],,,,,,
+Denfence,100,1,5,1,10,9999
+Alien,100,1,5,1,10,9999
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+[Zombie],,,,,,
+Zombie,200,2,3,1,2,9999
+,,,,,,
+,,,,,,
+[CanDestoryWall],,,,,,
+CanDestoryWall,99999,0,0,0,0,0

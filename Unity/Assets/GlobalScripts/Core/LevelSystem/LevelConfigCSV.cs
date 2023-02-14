@@ -1,0 +1,57 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace MiYue
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public class LevelConfigCSV : ConfigCSV<LevelConfigCSV>
+    {
+        public Dictionary<UnitType, Dictionary<CareerType, UnitData>> unitLevelDataConfig =
+            new Dictionary<UnitType, Dictionary<CareerType, UnitData>>();
+
+        private UnitType currentUnitType;
+
+        public LevelConfigCSV()
+        {
+            Init("Config/LevelConfig.csv", TextHandler);
+        }
+
+        public UnitData this[UnitType ut, CareerType ct]
+        {
+            get { return unitLevelDataConfig[ut][ct]; }
+        }
+
+        private void TextHandler(string line)
+        {
+            if (line.Contains("Data")) return;
+            if (string.IsNullOrEmpty(line.Replace(",", ""))) return;
+            if (line.Contains("[") || line.Contains("]"))
+            {
+                currentUnitType = (UnitType)Enum.Parse(typeof(UnitType),
+                    line.Replace(",", "").Replace("[", "").Replace("]", ""));
+                unitLevelDataConfig.Add(currentUnitType, new Dictionary<CareerType, UnitData>());
+            }
+            else
+            {
+                var strArr = line.Split(',');
+                var thisCareerType = (CareerType)Enum.Parse(typeof(CareerType), strArr[0]);
+                unitLevelDataConfig[currentUnitType].Add(thisCareerType, new UnitData()
+                {
+                    unitType = currentUnitType,
+                    careerType = thisCareerType,
+                    MaxHP = float.Parse(strArr[1]),
+                    ATK = float.Parse(strArr[2]),
+                    Speed = float.Parse(strArr[3]),
+                    atkInterval = float.Parse(strArr[4]),
+                    AttackRange = float.Parse(strArr[5]),
+                    FindRange = float.Parse(strArr[6]),
+                });
+
+            }
+        }
+    }
+}
