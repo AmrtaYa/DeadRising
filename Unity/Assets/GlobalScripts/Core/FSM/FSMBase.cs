@@ -180,8 +180,8 @@ namespace FSM
                     break;
                 case UnitType.Zombie:
                     allEnemy = UnitManager.Instance.GetAllTypeUnit(UnitType.Denfence);
-                    if (GameEngine.Instance.DestroyWall != null)
-                        if (GameEngine.Instance.DestroyWall.Data.HP > 0)
+                    if (FightMainGameEngine.Instance.DestroyWall != null)
+                        if (FightMainGameEngine.Instance.DestroyWall.Data.HP > 0)
                         {
                             if (smallWall == null)
                                 smallWall = SpawnManager.Instance.RandomGetMinPoint(transform.position,

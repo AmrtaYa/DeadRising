@@ -27,11 +27,11 @@ namespace MiYue
             collider = GetComponent<BoxCollider>();
             Obstacle.enabled = true;
             collider.enabled = true;
-            if (GameEngine.Instance.DestroyWall == null)
-                GameEngine.Instance.DestroyWall = this;
+            if (FightMainGameEngine.Instance.DestroyWall == null)
+                FightMainGameEngine.Instance.DestroyWall = this;
             if (UIControl == null)
             {
-                GameObject ui = UIManager.Instance.AddNewUI("WallHP",new Vector3(Screen.width/2,0));
+                GameObject ui = UIManager.Instance.AddNewUI("WallHP",UILayer.Mid,new Vector3(Screen.width/2,0));
                 ui.transform.localScale = 0.3F*Vector3.one;
                 UIControl = ui.GetComponent<WallUIControl>();
                 UIControl.Wall = this;

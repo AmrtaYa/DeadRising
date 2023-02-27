@@ -13,10 +13,12 @@ namespace MiYue
     public class CommonZomib : Unit
     {
         public FSMBase FsmBase;
+
         protected override void Awake()
         {
             base.Awake();
         }
+
         private void Start()
         {
             FsmBase = GetComponent<FSMBase>();
@@ -37,8 +39,8 @@ namespace MiYue
             {
                 return;
             }
-
-            enemyUnit.Damage(Data.ATK);
+            MoneyManager.GetGoal(1);
+           enemyUnit.Damage(Data.ATK);
         }
 
         public override void Dead()

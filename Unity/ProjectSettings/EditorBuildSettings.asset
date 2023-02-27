@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FightMainScenes.unity
+    path: Assets/Scenes/SetUp.unity
+    guid: 448cd4d02fefe184b8757d14550facc8
+  - enabled: 1
+    path: Assets/Scenes/ChooseRoomID.unity
+    guid: 46c35489efeb64341a13c33d523014e6
+  - enabled: 1
+    path: Assets/Scenes/DeadRise.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/RandomGameScene.unity
+    guid: f9177d52137487f43a9f0e04406a8b7d
+  - enabled: 1
+    path: Assets/Scenes/TerritorialWars.unity
+    guid: ab9b9de683509e24e8ed1ed522112a7c
   m_configObjects: {}

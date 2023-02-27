@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using MiYue;
 using UnityEngine;
 
 namespace Global
@@ -8,6 +10,12 @@ namespace Global
     /// </summary>
     public abstract class Control: MonoBehaviour
     {
+
+        public bool Open = false;
+        protected virtual void OnEnable()
+        {
+        }
+
         private void Start()
         {
             Init();

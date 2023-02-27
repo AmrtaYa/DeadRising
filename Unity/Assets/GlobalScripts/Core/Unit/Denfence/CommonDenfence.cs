@@ -23,11 +23,7 @@ namespace MiYue
            FsmBase.defaultStateID = FSMStateID.Idle;
            FsmBase.InitAll(FSMConfigCSV.Instance.DenfenceFsmConfig);
        }
-
-       private void Update()
-       {
-           print(IfOnTheTower);
-       }
+       
 
        public void StartCalcTowerTime(CommonAtkTower tower)
        {
@@ -47,7 +43,6 @@ namespace MiYue
            }
          
            targetTower.onTheTower = true;
-           Debug.Log("上炮台了");
            while (indexTIme<=GameGlobalSetting.UserTowerTime)
            {
                yield return new WaitForSeconds(1);
@@ -67,7 +62,7 @@ namespace MiYue
 
        public override void Attack()
        {
-        
+           MoneyManager.GetGoal(1);
        }
 
        public override void Dead()

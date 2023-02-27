@@ -11,7 +11,7 @@ namespace MiYue
    {
        private void Start()
        {
-           Data = new UnitData() { MaxHP = -100,HP = -100};
+           Data = new UnitData() { MaxHP = 10000,HP = 10000};
        }
 
        public override void Attack()
@@ -26,7 +26,7 @@ namespace MiYue
 
        public override void Damage(float atkDamage)
        {
-           GameEngine.Instance.DestroyWall.Damage(atkDamage);
+           FightMainGameEngine.Instance.DestroyWall.Damage(atkDamage);
            
        }
    }

@@ -16,6 +16,7 @@ namespace MiYue
         private void Update()
         {
             if (unit == null) return;
+            if ((unit as SmallWall) != null) return;
             UnitData unitData = unit.Data;
             if (unitData.MaxHP <= 0) return;
             unitData.currentEXP += Time.deltaTime;
@@ -31,7 +32,10 @@ namespace MiYue
         {
             UnitData levelData = LevelConfigCSV.Instance[unit.Data.unitType, unit.Data.careerType];
             unit.Data.MaxHP += levelData.MaxHP;
-            unit.Data.HP = unit.Data.MaxHP;
+            if (!(unit.Data.unitType == UnitType.CanDestoryWall))
+            {
+                unit.Data.HP = unit.Data.MaxHP;
+            }
             unit.Data.ATK += levelData.ATK;
             print($"升级了，增加了攻击力{levelData.ATK}和血量{levelData.MaxHP}");
         }

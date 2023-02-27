@@ -20,6 +20,7 @@ namespace Global
         {
             HpText = transform.FindTheTfByName<Text>("Text");
             HpImage = transform.FindTheTfByName<Image>("ReallyHP");
+            transform.localScale = Vector3.one;
             view = new WallUIView();
         }
 

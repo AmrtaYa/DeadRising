@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MiYue;
 using UnityEngine;
 
 namespace GJC.Helper
@@ -22,7 +23,15 @@ namespace GJC.Helper
                     instance = FindObjectOfType<T>();
                     if (instance == null)
                     {
-                        new GameObject("Manager " + typeof(T)).AddComponent<T>();
+                        if (typeof(T) == typeof(UIManager))
+                        {
+                            ResConfigCSV.Instance.GetInstance("MainCanvas");
+                        }
+                        else
+                        {
+                            new GameObject("Manager " + typeof(T)).AddComponent<T>();
+                        }
+                     
                     }
                     else
                     {

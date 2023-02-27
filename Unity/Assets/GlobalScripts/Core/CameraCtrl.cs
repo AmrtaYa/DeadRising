@@ -31,26 +31,26 @@ namespace MiYue
         {
             float hor = Input.GetAxis("Horizontal");
             float vec = Input.GetAxis("Vertical");
-            if (transform.position.x < range1.x && hor < 0)
-            {
-                print(1);
-            return;
-            }
-            if (transform.position.x < range1.x && vec< 0) 
-            {
-                print(2);
-                return;
-            }
-            if (transform.position.z > range2.z && hor > 0)
-            {
-                print(3);
-                return;
-            }
-            if (transform.position.z > range2.z && vec > 0) 
-            {
-                print(4);
-                return;
-            }
+            // if (transform.position.x < range1.x && hor < 0)
+            // {
+            //     print(1);
+            // return;
+            // }
+            // if (transform.position.x < range1.x && vec< 0) 
+            // {
+            //     print(2);
+            //     return;
+            // }
+            // if (transform.position.z > range2.z && hor > 0)
+            // {
+            //     print(3);
+            //     return;
+            // }
+            // if (transform.position.z > range2.z && vec > 0) 
+            // {
+            //     print(4);
+            //     return;
+            // }
             transform.position += new Vector3(hor, 0, vec) ;
         }
 

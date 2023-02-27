@@ -20,6 +20,7 @@ namespace MiYue
         public Transform PlayerUserTR;
         public CommonDenfence unit;
         public bool onTheTower;
+
         protected override void Awake()
         {
             base.Awake();
@@ -39,9 +40,9 @@ namespace MiYue
         {
             if (unit == null)
             {
-                UnitManager.Instance.GetPlayer(GameGlobalSetting.IDGoToTower).GetComponent<CommonDenfence>()
-                        .StartCalcTowerTime(this);
-
+                GameObject player = UnitManager.Instance.GetPlayer(GameGlobalSetting.IDGoToTower);
+                if (player != null)
+                    player.GetComponent<CommonDenfence>().StartCalcTowerTime(this);
             }
         }
 
@@ -57,19 +58,22 @@ namespace MiYue
             if (unit == null) return;
             CreateBullet(GunPot.position);
         }
+
         private void CreateBullet(Vector3 pos)
         {
             var bullet = GameObjectPool.Instance.Get("PlayerBullet", ResConfigCSV.Instance.GetPrefab("Bullet"),
                 pos,
                 Quaternion.identity);
             if (FsmBase.targetTr != null)
-                bullet.transform.forward = (FsmBase.targetTr.position - transform.position)+new Vector3(Random.Range(-2,3),Random.Range(-2,3),Random.Range(-2,3));
+                bullet.transform.forward = (FsmBase.targetTr.position - transform.position) +
+                                           new Vector3(Random.Range(-2, 3), Random.Range(-2, 3), Random.Range(-2, 3));
             Bullet Singlebullet = bullet.GetComponent<Bullet>();
             Singlebullet.AttackMan = this;
             if (Singlebullet.TrailRenderer == null)
                 Singlebullet.TrailRenderer = Singlebullet.GetComponent<TrailRenderer>();
             Singlebullet.TrailRenderer.Clear();
         }
+
         public override void Dead()
         {
         }
